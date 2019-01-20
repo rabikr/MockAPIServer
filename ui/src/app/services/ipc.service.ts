@@ -37,4 +37,8 @@ export class IpcService {
         return this._http.get<Config>("./assets/config.json");
     }
 
+    get ipc() {
+        return this._ipc;
+    }
+
 }

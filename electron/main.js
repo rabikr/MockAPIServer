@@ -14,6 +14,7 @@ function createWindow() {
     mainWin = new BrowserWindow(option);
     mainWin.loadFile("../ui/dist/mockapi/index.html");
     mainWin.on("close", () => app.quit());
+    console.log = (msg) => mainWin.webContents.send("serverLog", msg);;
 }
 
 // If app is running, clicking to start the app again will resume the running app
@@ -36,15 +37,8 @@ function load() {
     files.forEach((file) => { require(file) });
 }
 
-// Override the default console log and send the message
-//  back to the main window
-function serverLog(msg) {
-    mainWin.webContents.send("serverLog", msg);
-}
-
 // Initialize the main process
 function init() {
-    console.log = serverLog;
     makeSingleInstance();
     load();
     createWindow();
