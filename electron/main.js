@@ -36,8 +36,13 @@ function load() {
     files.forEach((file) => { require(file) });
 }
 
+function serverLog(msg) {
+    mainWin.webContents.send("serverLog", msg);
+}
+
 // Initialize the main process
 function init() {
+    console.log = serverLog;
     makeSingleInstance();
     load();
     createWindow();
