@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { IpcService } from '../../services/ipc.service';
+import { Config } from "../../models/config.model";
 
 @Component({
     selector: 'app-server',
@@ -7,16 +10,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServerComponent implements OnInit {
 
-    constructor() { }
+    isLive = false;
+    config: Config = {
+        host: "localhost",
+        port: "7878",
+        delay: "200"
+    };
+
+    constructor(private _ipc: IpcService) { }
 
     ngOnInit() {
+        this.loadConfig();
     }
 
-    startServer(e) {
-        console.log("start clicked", e);
+    loadConfig() {
+        this._ipc.loadConfig().subscribe(data => {
+            this.config = data;
+        });
     }
 
-    stopServer(e) {
-        console.log("stop clicked", e);
+    startServer() {
+        this.isLive = true;
+        this._ipc.startServer(this.config);
+    }
+
+    stopServer() {
+        this.isLive = false;
+        this._ipc.stopServer();
     }
 }

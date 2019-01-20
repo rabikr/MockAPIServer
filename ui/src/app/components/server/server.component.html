@@ -1,18 +1,18 @@
 <section class="section-serverConfig">
-    <div class="input-group mb-3">
+    <div class="input-group mb-3" *ngIf="config">
         <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon3">http://</span>
         </div>
-        <input id="hostname" type="text" class="form-control" placeholder="localhost">
+        <input id="hostname" type="text" class="form-control" [(ngModel)]="config.host" [disabled]="isLive" placeholder="localhost">
         <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon3">Port</span>
         </div>
-        <input id="port" type="text" class="form-control" placeholder="7878">
+        <input id="port" type="text" class="form-control" [(ngModel)]="config.port" [disabled]="isLive" placeholder="7878">
         <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon3">Delay(ms)</span>
         </div>
-        <input id="delay" type="text" class="form-control" placeholder="delay time">
-        <button id="runBtn" class="btn btn-success" (click)="startServer($event)">Run</button>
-        <button id="stopBtn" class="btn btn-danger hidden" (click)="stopServer($event)">Stop</button>
+        <input id="delay" type="text" class="form-control" [(ngModel)]="config.delay" [disabled]="isLive" placeholder="delay time">
+        <button id="runBtn" class="btn btn-success" (click)="startServer()" [ngClass]="{'hidden': isLive}">Run</button>
+        <button id="stopBtn" class="btn btn-danger" (click)="stopServer()" [ngClass]="{'hidden': !isLive}">Stop</button>
     </div>
 </section>
