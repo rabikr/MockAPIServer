@@ -8,60 +8,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Lorem ipsum dolor sit amet.</td>
-                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, quia?</td>
-                <td>edit</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>"2"</td>
-                <td>5</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>"2"</td>
-                <td>5</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>"2"</td>
-                <td>5</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>"2"</td>
-                <td>5</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>"2"</td>
-                <td>5</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>"2"</td>
-                <td>5</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>"2"</td>
-                <td>5</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>"2"</td>
-                <td>5</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>"2"</td>
-                <td>5</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>"2"</td>
-                <td>5</td>
+            <tr *ngFor="let data of tableData; let i = index">
+                <td>{{i}} {{data.key}}</td>
+                <td>{{i}} {{data.value}}</td>
+                <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </td>
             </tr>
         </tbody>
     </table>

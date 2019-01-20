@@ -1,15 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss']
+    selector: 'app-table',
+    templateUrl: './table.component.html',
+    styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
 
-  constructor() { }
+    tableData = tableData;
 
-  ngOnInit() {
-  }
+    constructor() { }
+
+    ngOnInit() {
+    }
 
 }
+
+const tableData = [
+    { key: "this is key", value: "this is value" },
+    { key: "this is key", value: "this is value" },
+    { key: "this is key", value: "this is value" },
+    { key: "this is key", value: "this is value" },
+    { key: "this is key", value: "this is value" },
+    { key: "this is key", value: "this is value" },
+    { key: "this is key", value: "this is value" },
+    { key: "this is key", value: "this is value" }
+]
