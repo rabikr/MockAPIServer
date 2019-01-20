@@ -1,31 +1,40 @@
 import { Injectable } from '@angular/core';
-import { IpcRenderer } from 'electron';
+import { HttpClient } from "@angular/common/http";
+import { IpcRenderer } from "electron";
+import { Observable } from 'rxjs';
+
+import { Config } from "../models/config.model";
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class IpcService {
 
-  private _ipc: IpcRenderer;
+    // Put it outside of constructor or else won't serve in angular
+    private _ipc: IpcRenderer;
 
-  constructor() {
-    if ((<any>window).require) {
-      try {
-        this._ipc = (<any>window).require("electron").ipcRenderer;
-      } catch (error) {
-        throw error;
-      }
-    } else {
-      console.warn("Could not load electron ipc");
+    constructor(private _http: HttpClient) {
+        if ((<any>window).require) {
+            try {
+                this._ipc = (<any>window).require("electron").ipcRenderer;
+            } catch (error) {
+                throw error;
+            }
+        } else {
+            console.warn("Could not load electron ipc");
+        }
     }
-  }
 
-  private sendMsg(msg, data?) {
-    this._ipc.send(msg, data);
-  }
+    startServer(data) {
+        this._ipc.send("startServer", data);
+    }
 
-  startServer() {
-    this.sendMsg('startServer');
-  }
+    stopServer() {
+        this._ipc.send("stopServer");
+    }
+
+    loadConfig(): Observable<Config> {
+        return this._http.get<Config>("./assets/config.json");
+    }
 
 }
