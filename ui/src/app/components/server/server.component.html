@@ -1,0 +1,18 @@
+<section class="section-serverConfig">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon3">http://</span>
+        </div>
+        <input id="hostname" type="text" class="form-control" placeholder="localhost">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon3">Port</span>
+        </div>
+        <input id="port" type="text" class="form-control" placeholder="7878">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon3">Delay(ms)</span>
+        </div>
+        <input id="delay" type="text" class="form-control" placeholder="delay time">
+        <button id="runBtn" class="btn btn-success" (click)="startServer($event)">Run</button>
+        <button id="stopBtn" class="btn btn-danger hidden" (click)="stopServer($event)">Stop</button>
+    </div>
+</section>

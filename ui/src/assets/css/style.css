@@ -1,0 +1,79 @@
+@import "reset.css";
+@import "bootstrap.min.css";
+@import "fonts.css";
+
+* {
+    border-radius: 0 !important;
+}
+
+body {
+    font-family: 'Questrial', serif;
+    font-size: 16px;
+    font-weight: 400;
+    overflow: hidden;
+    height: 100%;
+}
+
+footer {
+    height: 20px;
+    font-size: 0.9rem;
+    padding: 0 12px;
+    background: #007bff;
+    color: #fff;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+.left-main-column {
+    border-right: 1px solid rgb(222, 226, 230);
+}
+
+.title {
+    height: 50px;
+    background-color: rgba(0,0,0,.05);
+}
+
+.table th {
+    border:none;
+}
+
+section#section-serverConfig {
+    height: 38px;
+    margin-left: -1px;
+}
+
+/* Helper Class */
+.hidden {
+    display: none;
+}
+
+.full-vh {
+    height: calc(100vh - 108px);
+}
+
+.full-vh-notitle {
+    height: calc(100vh - 58px);
+}
+
+.full-row {
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+.scroll {
+    overflow: auto;
+}
+
+/* Bootstrap Override */
+.btn {
+    width: 130px;
+}
+
+/* Remove the blue glow from the input box */
+.form-control:focus {
+    border-color: #ced4da;
+    box-shadow: none;
+}

@@ -1,0 +1,52 @@
+@import "./assets/css/reset.css";
+@import "./assets/css/bootstrap.min.css";
+@import "./assets/css/fonts.css";
+
+* {
+    border-radius: 0 !important;
+}
+
+body {
+    font-family: 'Questrial', serif;
+    font-size: 16px;
+    font-weight: 400;
+    overflow: hidden;
+    height: 100%;
+}
+
+/* Helper Class */
+.hidden {
+    display: none;
+}
+
+.full-vh {
+    height: calc(100vh - 108px);
+}
+
+.full-vh-notitle {
+    height: calc(100vh - 58px);
+}
+
+.full-row {
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+.scroll {
+    overflow: auto;
+}
+
+/* Bootstrap Override */
+.btn {
+    width: 130px;
+}
+
+/* Remove the blue glow from the input box */
+.form-control:focus {
+    border-color: #ced4da;
+    box-shadow: none;
+}
+
+.btn:focus {
+    box-shadow: none;
+}
