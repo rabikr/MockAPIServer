@@ -1,12 +1,13 @@
 const { ipcMain } = require("electron");
 const express = require('express');
+const moment = require('moment');
 const app = express();
 const http = require('http');
 const server = http.createServer(app);
 
 ipcMain.on("startServer", (event, data) => {
     app.use((req, res, next) => {
-        console.log(`${req.connection.remoteAddress} ${req.method} ${req.originalUrl}`);
+        console.log(`[${moment().format('MM/DD/YYYY hh:mm:ss')}] ${req.connection.remoteAddress} ${req.method} ${req.originalUrl}`);
         setTimeout(next, parseInt(data.delay));
     });
     app.use('/', require('./router.js'));
