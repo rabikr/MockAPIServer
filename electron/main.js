@@ -14,7 +14,7 @@ function createWindow() {
     mainWin = new BrowserWindow(option);
     mainWin.loadFile("../ui/dist/mockapi/index.html");
     mainWin.on("close", () => app.quit());
-    console.log = (msg) => mainWin.webContents.send("serverLog", msg);
+    // console.log = (msg) => mainWin.webContents.send("serverLog", msg);
 }
 
 // If app is running, clicking to start the app again will resume the running app
