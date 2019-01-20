@@ -1,5 +1,5 @@
 {
-    "defaultHost": "localhost",
-    "defaultPort": 7878,
-    "defaultDelay": 200
+    "host": "localhost",
+    "port": "7878",
+    "delay": "200"
 }
