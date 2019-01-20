@@ -37,6 +37,14 @@ export class IpcService {
         return this._http.get<Config>("./assets/config.json");
     }
 
+    getProjects() {
+        this._ipc.send("requestProjects");
+    }
+
+    getAPIs(project: string) {
+        this._ipc.send("readProject", project);
+    }
+
     get ipc() {
         return this._ipc;
     }
