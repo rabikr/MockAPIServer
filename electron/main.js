@@ -36,6 +36,8 @@ function load() {
     files.forEach((file) => { require(file) });
 }
 
+// Override the default console log and send the message
+//  back to the main window
 function serverLog(msg) {
     mainWin.webContents.send("serverLog", msg);
 }
